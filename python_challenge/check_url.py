@@ -19,13 +19,12 @@ def split_urls(urls):
 
 def is_running(list):
     for i in range(len(list)):
-        check = requests.get(list[i])
-
-        if check.status_code == 200:
-            print(list[i] + " is Up!")
-        elif check.status_code == 404:
+        try:
+            check = requests.get(list[i])
+            if check.status_code == 200:
+                print(list[i] + " is Up!")
+        except:
             print(list[i] + " is Down!")
-
 
 while True:
     print("Welcome to IsItDown.py!")
