@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jeeen News</title>
+        <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    </head>
+    <header>
+        <h1>{{items.title}}</h1>
+        <div>
+            {{items.points}} points| By: {{items.author}} | 
+            <a href="{{items.url}}" target="_blank">{{items.url}}</a>  
+        </div>
+    </header>
+    <main>
+        {% for item in comment %}
+        <div>
+            {% if item.author is none %}
+                <p>[deleted]</p>
+            {% else %}  
+                <strong>{{item.author}}</strong>
+                <p></p>
+                <p>{{item.text|safe}}</p>
+            {% endif %}
+            <p></p>
+        </div>
+        <hr>
+        {% endfor %}
+    </main>
+</html>

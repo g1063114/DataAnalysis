@@ -31,14 +31,19 @@ def home():
             items = requests.get(url).json()
             db[order] = items
 
-    #print(items.get('hits'))
-    print(db)
+    #print(db)
 
-    return render_template("home.html",items=items.get('hits'))
+    return render_template("home.html",items=items.get('hits'),baseurl=base_url)
 
 @app.route("/<id>")
 def detail(id):
     page_url = base_url + f"/items/{id}"
+    items = requests.get(page_url).json()
+    comment = items.get('children')
+    db[id] = items
+
+    print(comment)
+    return render_template("detail.html",items=items,comment=comment)
     
 
 
