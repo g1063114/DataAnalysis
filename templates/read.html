@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Jeeen News</title>
+        <title>Reddit Reader</title>
         <link rel="stylesheet" href="https://unpkg.com/mvp.css">
     </head>
     <header>
         <h1><a href="/">Reddit Reader</a></h1>
-        <h2>Reading: </h2>
+        <h2>Reading: {{param}}</h2>
     </header>
     <main>
-        {{items}}
+        {% for item in items %}
+        <div>
+            <h3>
+                <a href="https://www.reddit.com/{{item.url}}" target="_blank">{{item.title}}</a>
+            </h3>
+            <h4>{{item.vote}} upvotes · {{item.lang}}</h4>
+            <hr>
+        </div>
+        {% endfor %}
     </main>
 </html>
