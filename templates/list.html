@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Remote Jobs</title>
+        <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    </head>
+    <header>
+        <h1>Remote Jobs</h1>
+        <h2>{{length}} {{term}} jobs found.</h2>
+        <a href="/export?term={{term}}">Export to CSV</a>
+        <br>
+        <a href="/">Go back</a>
+    </header>
+    <main>
+        {% for item in items %}
+            <div>
+                <h2>{{item.title}}</h2>
+                <h3>{{item.company}}</h3>
+                <a href="{{item.url}}" target="_blank">Apply</a>
+            </div>
+            <hr>
+        {% endfor %}
+    </main>
+</html>
