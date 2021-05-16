@@ -66,9 +66,9 @@ def stack(temp,key):
 def save_to_file(items,key):
     file = open("jobs.csv", mode="w",encoding='utf8')
     writer = csv.writer(file)
-    writer.writerow(["url","title","company"])
+    writer.writerow(["key","url","title","company"])
     for item in items:
-        write_list = [item.get('url'),item.get('title'),item.get('company')]
+        write_list = [key,item.get('url'),item.get('title'),item.get('company')]
         writer.writerow(write_list)
  
 
