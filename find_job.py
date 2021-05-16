@@ -94,14 +94,12 @@ def content():
 def export():
     try:
         term = request.args.get('term')
-        print(term)
         if not term:
             raise Exception()
         jobs = db.get(term)
-        print(jobs)
         if not jobs:
             raise Exception()
-        save_to_file(jobs)
+        save_to_file(jobs,term)
         return send_file("jobs.csv")
     except:
         return redirect("/")
