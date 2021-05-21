@@ -30,10 +30,8 @@ data= {
 
 resp = session.post(w_url,data=data)
 
-print(resp)
-
 my_page = "https://www.wanted.co.kr/profile/likes"
 
 resp = session.get(my_page)
-print(resp.text)
+
 content = BeautifulSoup(resp.text,"html.parser")
