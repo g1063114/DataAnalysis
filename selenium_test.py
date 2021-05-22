@@ -18,10 +18,6 @@ time.sleep(2)
 search = driver.find_element_by_xpath('//*[@id="__next"]/div/div[1]/div/nav/ul/li[2]/a')
 search.click()
 
-src = driver.page_source
-content = BeautifulSoup(src)
-print(content)
-
-time.sleep(5)
+WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME,'li')))
 
 driver.close()
