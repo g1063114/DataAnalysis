@@ -176,6 +176,6 @@ order1 = orders.set_index('customer_id')
 #print(order1)
 
 #print(pd.merge(cust1, order1, left_index=True, right_index=True))      # left index랑 right index랑 join
-
+#
 print(pd.merge(customer, orders, on='customer_id').groupby('item').sum().sort_values(by='quantity', ascending=False))
 print(pd.merge(customer, orders, on='customer_id').groupby(['name','item']).sum().loc['영희'])
